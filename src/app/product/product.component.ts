@@ -14,7 +14,6 @@ export class ProductComponent implements OnInit {
   products: Product[];
 
   ngOnInit() {
-    console.log("bbbbbbb TYpe Script");
     this.getProducts();
   }
 

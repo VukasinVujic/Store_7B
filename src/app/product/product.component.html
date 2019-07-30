@@ -1,5 +1,25 @@
-<ul>
-  <li *ngFor="let product of products">
-    {{ product.name }}
-  </li>
-</ul>
+<div>
+  <table *ngFor="let product of products">
+    <tr class="grid-container">
+      <th class="grid-item">Id</th>
+      <th class="grid-item">Picture</th>
+      <th class="grid-item">Name</th>
+      <th class="grid-item">Price</th>
+      <th class="grid-item">Description</th>
+    </tr>
+    <tr class="grid-container">
+      <td class="grid-item">{{ product.id }}</td>
+      <td class="grid-item">
+        <img src="{{ product.picture }}" />
+      </td>
+      <td class="grid-item">{{ product.name }}</td>
+      <td class="grid-item">{{ product.price.toFixed(2) }} $</td>
+      <td class="grid-item"><a href=""> Details</a></td>
+    </tr>
+    <tr class="grid-container">
+      <td class="grid-item">
+        <a href=""> {{ product.tags }}</a>
+      </td>
+    </tr>
+  </table>
+</div>
