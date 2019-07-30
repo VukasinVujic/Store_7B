@@ -9,7 +9,14 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./details.component.scss"]
 })
 export class DetailsComponent implements OnInit {
-  product: Product;
+  product: Product = {
+    id: 0,
+    name: " ",
+    picture: " ",
+    description: " ",
+    price: 0,
+    tags: []
+  };
 
   constructor(
     private productService: ProductService,

@@ -1,2 +1,28 @@
 <p>details works!</p>
-<div></div>
+<table>
+  <tr class="grid-container">
+    <th class="grid-item">id</th>
+    <th class="grid-item">Picture</th>
+    <th class="grid-item">price</th>
+    <th class="grid-item">name</th>
+  </tr>
+  <tr class="grid-container">
+    <td class="grid-item">{{ product.id }}</td>
+    <td class="grid-item">
+      <img src="{{ product.picture }}" />
+    </td>
+    <td class="grid-item">{{ product.price.toFixed(2) }} $</td>
+    <td class="grid-item">{{ product.name }}</td>
+  </tr>
+
+  <tr class="grid-container-text">
+    <th class="grid-item-text">description</th>
+    <td class="grid-item-text">{{ product.description }}</td>
+  </tr>
+
+  <tr class="grid-container">
+    <td class="grid-item">
+      <a href=""> {{ product.tags }}</a>
+    </td>
+  </tr>
+</table>
