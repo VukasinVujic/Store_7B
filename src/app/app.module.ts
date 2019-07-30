@@ -7,13 +7,15 @@ import { HomePageComponent } from "./home-page/home-page.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { ProductComponent } from "./product/product.component";
 import { HttpClientModule } from "@angular/common/http";
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     NavbarComponent,
-    ProductComponent
+    ProductComponent,
+    DetailsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

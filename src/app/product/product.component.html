@@ -14,7 +14,9 @@
       </td>
       <td class="grid-item">{{ product.name }}</td>
       <td class="grid-item">{{ product.price.toFixed(2) }} $</td>
-      <td class="grid-item"><a href=""> Details</a></td>
+      <td class="grid-item">
+        <a routerLink="/details/{{ product.id }}"> Details</a>
+      </td>
     </tr>
     <tr class="grid-container">
       <td class="grid-item">
