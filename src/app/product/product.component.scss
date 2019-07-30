@@ -34,3 +34,11 @@ img {
   text-align: center;
   width: 200px;
 }
+
+.grid-container-tagButton {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: auto 80%;
+  background-color: #2196f3;
+  padding: 10px;
+}
