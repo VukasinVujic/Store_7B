@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
+import { Observable, of, Subject } from "rxjs";
 import { Product } from "./product";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { filter, switchMap } from "rxjs/operators";
@@ -21,4 +21,12 @@ export class ProductService {
   }
 
   private productUrl = "../assets/products.json";
+  sumOfValue: number = 0;
+
+  addingSum(value: number): void {
+    this.sumOfValue += value;
+  }
+  getSum(): number {
+    return this.sumOfValue;
+  }
 }

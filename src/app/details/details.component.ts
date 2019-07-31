@@ -17,7 +17,7 @@ export class DetailsComponent implements OnInit {
     price: 5,
     tags: []
   };
-  moneyInCart: number = 0;
+  moneyForItem: number = 0;
 
   constructor(
     private productService: ProductService,
@@ -36,6 +36,7 @@ export class DetailsComponent implements OnInit {
   }
 
   addValueOfItem(): void {
-    this.moneyInCart += this.product.price;
+    this.moneyForItem = this.product.price;
+    this.productService.addingSum(this.moneyForItem);
   }
 }
