@@ -14,9 +14,10 @@ export class DetailsComponent implements OnInit {
     name: " ",
     picture: " ",
     description: " ",
-    price: 0,
+    price: 5,
     tags: []
   };
+  moneyInCart: number = 0;
 
   constructor(
     private productService: ProductService,
@@ -32,5 +33,9 @@ export class DetailsComponent implements OnInit {
     this.productService.getProduct(id).subscribe(product => {
       this.product = product;
     });
+  }
+
+  addValueOfItem(): void {
+    this.moneyInCart += this.product.price;
   }
 }
