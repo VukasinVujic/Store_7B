@@ -27,7 +27,18 @@ export class ProductService {
   _cartCounter$: Subject<object> = new Subject<object>();
 
   addToCart(product: Product): void {
+    // from details.ts addToCart
     this.sumOfValue.push(product.price);
+    this.sumOfArray = this.sumOfValue.reduce((a, b) => {
+      return a + b;
+    });
+    this._cartCounter$.next({
+      price: this.sumOfArray
+    });
+  }
+
+  addToCartProduct(productPrice: number): void {
+    this.sumOfValue.push(productPrice);
     this.sumOfArray = this.sumOfValue.reduce((a, b) => {
       return a + b;
     });

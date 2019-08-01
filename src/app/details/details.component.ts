@@ -19,8 +19,6 @@ export class DetailsComponent implements OnInit {
   };
   // @Input() product: Product; //just take input from Product class that you made and imported above
 
-  moneyForItem: number = 0;
-
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute
