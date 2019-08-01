@@ -1,23 +1,23 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { ProductService } from "../product.service";
+import { Subject } from "rxjs";
+import { Product } from "../product";
+
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
-  valueToShow: number = 100;
+  cartPrice: number = 0;
+  _subscription;
 
-  constructor(private productService: ProductService) {}
-
-  ngOnInit() {
-    this.getValue();
-    console.log(this.productService.getSum());
-    console.log("aaaa");
+  constructor(private productService: ProductService) {
+    this._subscription = productService._cartCounter$.subscribe(value => {
+      let { price = 0 } = { ...value };
+      this.cartPrice = price;
+    });
   }
 
-  getValue(): void {
-    this.valueToShow += this.productService.sumOfValue;
-    console.log(this.productService.getSum());
-  }
+  ngOnInit() {}
 }

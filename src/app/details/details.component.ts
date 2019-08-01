@@ -17,6 +17,8 @@ export class DetailsComponent implements OnInit {
     price: 5,
     tags: []
   };
+  // @Input() product: Product; //just take input from Product class that you made and imported above
+
   moneyForItem: number = 0;
 
   constructor(
@@ -35,8 +37,7 @@ export class DetailsComponent implements OnInit {
     });
   }
 
-  addValueOfItem(): void {
-    this.moneyForItem = this.product.price;
-    this.productService.addingSum(this.moneyForItem);
+  addToCart() {
+    this.productService.addToCart(this.product);
   }
 }

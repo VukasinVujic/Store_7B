@@ -21,12 +21,18 @@ export class ProductService {
   }
 
   private productUrl = "../assets/products.json";
-  sumOfValue: number = 0;
+  sumOfValue: number[] = [];
+  sumOfArray: number = 0;
 
-  addingSum(value: number): void {
-    this.sumOfValue += value;
-  }
-  getSum(): number {
-    return this.sumOfValue;
+  _cartCounter$: Subject<object> = new Subject<object>();
+
+  addToCart(product: Product): void {
+    this.sumOfValue.push(product.price);
+    this.sumOfArray = this.sumOfValue.reduce((a, b) => {
+      return a + b;
+    });
+    this._cartCounter$.next({
+      price: this.sumOfArray
+    });
   }
 }
