@@ -1,7 +1,10 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { ProductService } from "../product.service";
+
 import { Subject } from "rxjs";
 import { Product } from "../product";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { counter } from "@fortawesome/fontawesome-svg-core";
 
 @Component({
   selector: "app-navbar",
@@ -11,6 +14,7 @@ import { Product } from "../product";
 export class NavbarComponent implements OnInit {
   cartPrice: number = 0;
   _subscription;
+  faShoppingCart = faShoppingCart;
 
   constructor(private productService: ProductService) {
     this._subscription = productService._cartCounter$.subscribe(value => {

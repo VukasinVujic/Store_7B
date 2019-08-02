@@ -7,7 +7,8 @@ import { HomePageComponent } from "./home-page/home-page.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { ProductComponent } from "./product/product.component";
 import { HttpClientModule } from "@angular/common/http";
-import { DetailsComponent } from './details/details.component';
+import { DetailsComponent } from "./details/details.component";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,12 @@ import { DetailsComponent } from './details/details.component';
     ProductComponent,
     DetailsComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FontAwesomeModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
