@@ -29,6 +29,7 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.getProducts();
     this.getProduct();
+    // console.log(productAAA);
   }
 
   getProducts(): void {
@@ -44,7 +45,7 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  addToCart() {
-    this.productService.addToCart(this.product);
+  addToCart(product: Product) {
+    this.productService.addToCart(product);
   }
 }

@@ -38,6 +38,7 @@ export class ProductService {
   }
 
   addToCartProduct(productPrice: number): void {
+    // from product.component.ts
     this.sumOfValue.push(productPrice);
     this.sumOfArray = this.sumOfValue.reduce((a, b) => {
       return a + b;

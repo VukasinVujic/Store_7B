@@ -9,6 +9,7 @@ import { ProductComponent } from "./product/product.component";
 import { HttpClientModule } from "@angular/common/http";
 import { DetailsComponent } from "./details/details.component";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     HomePageComponent,
     NavbarComponent,
     ProductComponent,
-    DetailsComponent
+    DetailsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
