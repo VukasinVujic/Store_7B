@@ -15,7 +15,6 @@ export class ProductComponent implements OnInit {
   ) {}
 
   products: Product[];
-  productAAA: Product;
 
   product: Product = {
     id: 0,

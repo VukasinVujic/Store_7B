@@ -23,8 +23,14 @@ export class ProductService {
   private productUrl = "../assets/products.json";
   sumOfValue: number[] = [];
   sumOfArray: number = 0;
+  cartList = [];
 
   _cartCounter$: Subject<object> = new Subject<object>();
+  _cartList$: Subject<object> = new Subject<object>();
+
+  get cartList$() {
+    return this._cartList$.asObservable();
+  }
 
   addToCart(product: Product): void {
     // from details.ts addToCart
@@ -32,19 +38,24 @@ export class ProductService {
     this.sumOfArray = this.sumOfValue.reduce((a, b) => {
       return a + b;
     });
+    this.cartList.push(product);
+
     this._cartCounter$.next({
       price: this.sumOfArray
+    });
+    this._cartList$.next({
+      products: this.cartList
     });
   }
 
-  addToCartProduct(productPrice: number): void {
-    // from product.component.ts
-    this.sumOfValue.push(productPrice);
-    this.sumOfArray = this.sumOfValue.reduce((a, b) => {
-      return a + b;
-    });
-    this._cartCounter$.next({
-      price: this.sumOfArray
-    });
-  }
+  // addToCartProduct(productPrice: number): void {
+  //   // from product.component.ts
+  //   this.sumOfValue.push(productPrice);
+  //   this.sumOfArray = this.sumOfValue.reduce((a, b) => {
+  //     return a + b;
+  //   });
+  //   this._cartCounter$.next({
+  //     price: this.sumOfArray
+  //   });
+  // }
 }
