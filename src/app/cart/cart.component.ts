@@ -14,9 +14,9 @@ export class CartComponent implements OnInit {
   products = [];
   private _onDestroy$ = new Subject<void>();
 
-  constructor(private productServis: ProductService) {
-    this.products = this.productServis.cartList;
-    this._superCoolSubject = productServis.cartList$
+  constructor(private productService: ProductService) {
+    this.products = this.productService.cartList;
+    this._superCoolSubject = productService.cartList$
       // .pipe(takeUntil(this._onDestroy$))
       .subscribe(value => {
         let { products = [] } = { ...value };
@@ -25,11 +25,16 @@ export class CartComponent implements OnInit {
   }
 
   removeProduct(item: number) {
-    this.productServis.removeItem(item);
+    this.productService.removeItem(item);
   }
 
   removeAll() {
-    this.productServis.removeAll();
+    this.productService.removeAll();
+  }
+
+  clearFromCart() {
+    this.productService.clearCartFromMoney();
+    alert("YOU BOUGHT IT YEEEEAH VUUUUUU, no money back B***h");
   }
 
   ngOnInit() {

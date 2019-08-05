@@ -68,4 +68,13 @@ export class ProductService {
       products: this.cartList
     });
   }
+
+  clearCartFromMoney(): void {
+    this.sumOfArray = 0;
+    this.removeAll();
+
+    this._cartCounter$.next({
+      price: this.sumOfArray
+    });
+  }
 }

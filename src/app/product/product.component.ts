@@ -47,4 +47,15 @@ export class ProductComponent implements OnInit {
   addToCart(product: Product) {
     this.productService.addToCart(product);
   }
+
+  clearFromCart() {
+    if (this.getSumFromCart()) {
+      this.productService.clearCartFromMoney();
+      alert("YOU BOUGHT IT YEEEEAH VUUUUUU, no money back B***h");
+    }
+  }
+
+  getSumFromCart() {
+    return this.productService.sumOfArray;
+  }
 }
