@@ -12,7 +12,6 @@ import { takeUntil } from "rxjs/operators";
 export class CartComponent implements OnInit {
   _superCoolSubject;
   products = [];
-  aaa;
   private _onDestroy$ = new Subject<void>();
 
   constructor(private productServis: ProductService) {
@@ -22,21 +21,24 @@ export class CartComponent implements OnInit {
       .subscribe(value => {
         let { products = [] } = { ...value };
         this.products = products;
-        console.log(this.products[0].name);
-        console.log(products[0].name);
-
-        this.aaa = JSON.stringify(products);
-        console.log(this.aaa);
       });
   }
 
-  ngOnInit() {
-    this.getProducts;
+  removeProduct(item: number) {
+    this.productServis.removeItem(item);
   }
 
-  getProducts() {
-    return this.products;
+  removeAll() {
+    this.productServis.removeAll();
   }
+
+  ngOnInit() {
+    //   this.getProducts;
+  }
+
+  // getProducts() {
+  //   return this.products;
+  // }
   ngOnDestroy() {
     // Prevent memory leak when component destroyed
     // this._onDestroy$.next();

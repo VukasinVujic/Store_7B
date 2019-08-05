@@ -1,7 +1,46 @@
 <p>cart works!</p>
+<div>
+  <button class="btn btn-danger btn-lg" (click)="removeAll()">
+    remove everything, EVERYTHING, from cart
+  </button>
+</div>
+<div>
+  <table *ngFor="let product of products">
+    <tr class="grid-container">
+      <th class="grid-item">Id</th>
+      <th class="grid-item">Picture</th>
+      <th class="grid-item">Name</th>
+      <th class="grid-item">Price</th>
+      <th class="grid-item">Description</th>
+    </tr>
+    <tr class="grid-container">
+      <td class="grid-item">{{ product.id }}</td>
+      <td class="grid-item">
+        <img src="{{ product.picture }}" />
+      </td>
+      <td class="grid-item">{{ product.name }}</td>
+      <td class="grid-item">{{ product.price.toFixed(2) }} $</td>
+      <td class="grid-item">
+        <a routerLink="/details/{{ product.id }}"> Details</a>
+      </td>
+    </tr>
+    <tr class="grid-container-tagButton">
+      <td class="grid-item">
+        <a href=""> {{ product.tags }}</a>
+      </td>
+      <td class="grid-item">
+        <button class="btn btn-primary btn-lg">Don't think, just Buy</button>
+      </td>
+      <td class="grid-item">
+        <button
+          class="btn btn-danger btn-lg"
+          (click)="removeProduct(product.id)"
+        >
+          Remove from cart,FOREVER
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
 
-<p>{{ products[0].name }}</p>
-<!-- <p>{{ aaa }}</p> -->
-
-<p>Sum:</p>
-<!-- <button (click)="location.href='bought' class="btn btn-primary btn-lg">Don't think, just Buy</button> -->
+<!-- <p>{{ products[1].name }}</p> -->

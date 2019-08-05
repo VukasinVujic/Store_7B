@@ -48,14 +48,24 @@ export class ProductService {
     });
   }
 
-  // addToCartProduct(productPrice: number): void {
-  //   // from product.component.ts
-  //   this.sumOfValue.push(productPrice);
-  //   this.sumOfArray = this.sumOfValue.reduce((a, b) => {
-  //     return a + b;
-  //   });
-  //   this._cartCounter$.next({
-  //     price: this.sumOfArray
-  //   });
-  // }
+  removeItem(forRemoving): void {
+    if (this.cartList.find(x => x.id === forRemoving)) {
+      let index = this.cartList.findIndex(obj => {
+        return obj.id === forRemoving;
+      });
+      this.cartList.splice(index, 1);
+    }
+
+    this._cartList$.next({
+      products: this.cartList
+    });
+  }
+
+  removeAll(): void {
+    this.cartList = [];
+
+    this._cartList$.next({
+      products: this.cartList
+    });
+  }
 }
