@@ -20,7 +20,7 @@
     </tr>
     <tr class="grid-container-tagButton">
       <td class="grid-item">
-        <a href=""> {{ product.tags }}</a>
+        <a *ngFor="let tag of product.tags" href="{{ tag }}"> {{ tag }}</a>
       </td>
       <td class="grid-item">
         <button class="btn btn-primary btn-lg" (click)="clearFromCart()">

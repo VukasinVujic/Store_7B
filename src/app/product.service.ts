@@ -63,7 +63,6 @@ export class ProductService {
 
   removeAll(): void {
     this.cartList = [];
-
     this._cartList$.next({
       products: this.cartList
     });
@@ -72,9 +71,10 @@ export class ProductService {
   clearCartFromMoney(): void {
     this.sumOfArray = 0;
     this.removeAll();
+    this.sumOfValue = [];
 
     this._cartCounter$.next({
-      price: this.sumOfArray
+      price: 0
     });
   }
 }
